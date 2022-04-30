@@ -1,5 +1,5 @@
 // Going Standard
-let get = () => {
+let func = () => {
     let inputStr = document.getElementById("input").value;
     let initialArr = splitter(inputStr);
     let reversedArr = reverser(initialArr);

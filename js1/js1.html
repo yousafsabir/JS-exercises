@@ -52,21 +52,19 @@
             a string without using built-in methods
         </h1>
         <input type="text" id="input" />
-        <button onclick="get()">Submit</button>
+        <button onclick="func()">Submit</button>
         <div class="result" id="result"></div>
         <h2>Code:</h2>
         <pre>
-            <code>let inputStr;</code>
-            <code>let get = () => {</code>
+            <code>let func = () => {</code>
             <code>    let inputStr = document.getElementById("input").value;</code>
-            <code>    let initialArr = inputStr.split("");</code>
-            <code>    let finalArr = [];</code>
-            <code>    for (let index = initialArr.length; index > 0; index--) {</code>
-            <code>        finalArr.push(initialArr[index - 1]);</code>
-            <code>    }</code>
-            <code>    let resultStr = finalArr.join("");</code>
-            <code>    document.getElementById("result").innerHTML = resultStr;</code>
+            <code>    let initialArr = splitter(inputStr);</code>
+            <code>    let reversedArr = reverser(initialArr);</code>
+            <code>    let finalStr = joiner(reversedArr);</code>
+            <code>    document.getElementById("result").innerHTML = finalStr;</code>
             <code>};</code>
+            <br>
+            <code>For more details, check the Js file</code>
         </pre>
         <script src="./js1.js"></script>
     </body>
