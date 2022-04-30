@@ -1,12 +1,33 @@
-// ----------------
-let inputStr;
+// Going Standard
 let get = () => {
     let inputStr = document.getElementById("input").value;
-    let initialArr = inputStr.split("");
-    let finalArr = [];
-    for (let index = initialArr.length; index > 0; index--) {
-        finalArr.push(initialArr[index - 1]);
-    }
-    let resultStr = finalArr.join("");
-    document.getElementById("result").innerHTML = resultStr;
+    let initialArr = splitter(inputStr);
+    let reversedArr = reverser(initialArr);
+    let finalStr = joiner(reversedArr);
+    document.getElementById("result").innerHTML = finalStr;
 };
+
+// re-inventing the wheel
+function splitter(inputString) {
+    let initialArray = [];
+    for (let index = 0; index < inputString.length; index++) {
+        initialArray.push(inputString.slice(index, index + 1));
+    }
+    return initialArray;
+}
+
+function reverser(initialArray) {
+    let reversedArray = [];
+    for (let index = initialArray.length; index > 0; index--) {
+        reversedArray.push(initialArray[index - 1]);
+    }
+    return reversedArray;
+}
+
+function joiner(reversedArray) {
+    let finalString = "";
+    for (let index = 0; index < reversedArray.length; index++) {
+        finalString = finalString + `${reversedArray[index]}`;
+    }
+    return finalString;
+}
