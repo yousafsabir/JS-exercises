@@ -11,7 +11,7 @@ let get = () => {
 function splitter(inputString) {
     let initialArray = [];
     for (let index = 0; index < inputString.length; index++) {
-        initialArray.push(inputString.slice(index, index + 1));
+        initialArray[index] = inputString[index];
     }
     return initialArray;
 }
@@ -19,7 +19,7 @@ function splitter(inputString) {
 function reverser(initialArray) {
     let reversedArray = [];
     for (let index = initialArray.length; index > 0; index--) {
-        reversedArray.push(initialArray[index - 1]);
+        reversedArray[initialArray.length - index] = initialArray[index - 1];
     }
     return reversedArray;
 }
