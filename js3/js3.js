@@ -4,6 +4,7 @@ let outputArray = [];
 function names() {
     let name = document.getElementById("name").value;
     namesArray.push(name);
+    document.getElementById("name").value = "";
 }
 function process() {
     for (let index = 0; index < namesArray.length; index++) {
@@ -11,14 +12,16 @@ function process() {
         name = name.toLowerCase();
         nameArray = name.split("");
         processedName = innerProcess(nameArray);
+        console.log(processedName);
         joinedName = processedName.join("");
-        namesArray[index] = joinedName;
+        outputArray[index] = joinedName;
+        document.getElementById("output").innerHTML = `[${outputArray}]`;
     }
 }
 function innerProcess(inputArray) {
     let lastLetter = inputArray[inputArray.length - 1];
     lastLetter = lastLetter.toUpperCase();
     inputArray.pop();
-    inputArray.push(lastLetter);
+    inputArray.unshift(lastLetter);
     return inputArray;
 }
