@@ -2,7 +2,7 @@ function func() {
     // getting input string
     let inputStr = document.getElementById("input").value;
     // converting it into an array
-    let array = inputStr.split("");
+    let array = mySplit(inputStr);
     // declaring output string
     let outputStr = "";
 
@@ -146,4 +146,14 @@ function func() {
 
     // outputing the output
     document.getElementById("output").innerHTML = outputStr;
+}
+
+// Utitlity Functions
+
+function mySplit(inputStr) {
+    let outputArr = [];
+    for (let index = 0; index < inputStr.length; index++) {
+        outputArr[index] = inputStr[index];
+    }
+    return outputArr;
 }
