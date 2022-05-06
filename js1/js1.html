@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>js1</title>
+    </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            font-family: sans-serif;
+            color: #333;
+            background-color: #fafafa;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            padding: 0.5rem 1rem;
+            min-width: 250px;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+
+        button {
+            padding: 0.5rem 2rem;
+            font-size: 1rem;
+            margin-block: 1rem;
+        }
+
+        .result {
+            max-width: 250px;
+            font-size: 1.5rem;
+        }
+
+        code {
+            font-size: 1rem;
+        }
+    </style>
+    <body>
+        <h1>
+            write a js program to reverse <br />
+            a string without using built-in methods
+        </h1>
+        <input type="text" id="input" />
+        <button onclick="func()">Submit</button>
+        <div class="result" id="result"></div>
+        <h2>Code:</h2>
+        <pre>
+<code>let func = () => {</code>
+<code>    let inputStr = document.getElementById("input").value;</code>
+<code>    let initialArr = splitter(inputStr);</code>
+<code>    let reversedArr = reverser(initialArr);</code>
+<code>    let finalStr = joiner(reversedArr);</code>
+<code>    document.getElementById("result").innerHTML = finalStr;</code>
+<code>};</code>
+<br>
+<code>For more details, check the Js file</code>
+        </pre>
+        <script src="./js1.js"></script>
+    </body>
+</html>
