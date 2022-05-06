@@ -4,7 +4,7 @@ let day;
 let isLeap = 28;
 let lastDay;
 
-// ---------------Getting Data from DOM
+// ---------------Getting Data from DOM and validating it
 
 function getData() {
     // getting year
@@ -105,4 +105,25 @@ function lastDayFunc(month) {
 }
 
 // ----------------Processing Data
-function process() {}
+function process() {
+    let increment = 15;
+    let newDay = increment + day;
+    let newMonth = month;
+    let newYear = year;
+
+    if (newDay <= lastDay) {
+        document.getElementById(
+            "output"
+        ).innerHTML = `${year} / ${month} / ${newDay}`;
+    } else {
+        newDay = newDay - lastDay;
+        newMonth += 1;
+        if (newMonth > 12) {
+            newMonth = 1;
+            newYear += 1;
+        }
+        document.getElementById(
+            "output"
+        ).innerHTML = `${newYear} / ${newMonth} / ${newDay}`;
+    }
+}
