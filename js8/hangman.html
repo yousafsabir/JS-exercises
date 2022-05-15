@@ -4,8 +4,59 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- fontawsome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <link rel="stylesheet" href="./hangman.css" />
+
         <script src="./hangman.js" defer></script>
+
         <title>Hangman | M.Yousaf</title>
     </head>
-    <body></body>
+    <body>
+        <div class="keyboard">
+            <div class="row row-1">
+                <span><i>q</i></span>
+                <span><i>w</i></span>
+                <span><i>e</i></span>
+                <span><i>r</i></span>
+                <span><i>t</i></span>
+                <span><i>y</i></span>
+                <span><i>u</i></span>
+                <span><i>i</i></span>
+                <span><i>o</i></span>
+                <span><i>p</i></span>
+            </div>
+            <div class="row row-2">
+                <span><i>a</i></span>
+                <span><i>s</i></span>
+                <span><i>d</i></span>
+                <span><i>f</i></span>
+                <span><i>g</i></span>
+                <span><i>h</i></span>
+                <span><i>j</i></span>
+                <span><i>k</i></span>
+                <span><i>l</i></span>
+            </div>
+            <div class="row row-3">
+                <span class="backspace" id="backspace"
+                    ><i class="fa-solid fa-delete-left"></i
+                ></span>
+                <span><i>z</i></span>
+                <span><i>x</i></span>
+                <span><i>c</i></span>
+                <span><i>v</i></span>
+                <span><i>b</i></span>
+                <span><i>n</i></span>
+                <span><i>m</i></span>
+                <span class="enter" id="enter"><i>Enter</i></span>
+            </div>
+        </div>
+    </body>
 </html>
