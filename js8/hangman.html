@@ -20,43 +20,49 @@
         <title>Hangman | M.Yousaf</title>
     </head>
     <body>
+        <div class="main"></div>
+
         <div class="keyboard">
             <div class="row row-1">
-                <span><i>q</i></span>
-                <span><i>w</i></span>
-                <span><i>e</i></span>
-                <span><i>r</i></span>
-                <span><i>t</i></span>
-                <span><i>y</i></span>
-                <span><i>u</i></span>
-                <span><i>i</i></span>
-                <span><i>o</i></span>
-                <span><i>p</i></span>
+                <button class="fail">
+                    <i>q</i>
+                </button>
+                <button class="success"><i>w</i></button>
+                <button><i>e</i></button>
+                <button><i>r</i></button>
+                <button><i>t</i></button>
+                <button><i>y</i></button>
+                <button><i>u</i></button>
+                <button><i>i</i></button>
+                <button><i>o</i></button>
+                <button><i>p</i></button>
             </div>
             <div class="row row-2">
-                <span><i>a</i></span>
-                <span><i>s</i></span>
-                <span><i>d</i></span>
-                <span><i>f</i></span>
-                <span><i>g</i></span>
-                <span><i>h</i></span>
-                <span><i>j</i></span>
-                <span><i>k</i></span>
-                <span><i>l</i></span>
+                <button><i>a</i></button>
+                <button><i>s</i></button>
+                <button><i>d</i></button>
+                <button><i>f</i></button>
+                <button><i>g</i></button>
+                <button><i>h</i></button>
+                <button><i>j</i></button>
+                <button><i>k</i></button>
+                <button><i>l</i></button>
             </div>
             <div class="row row-3">
-                <span class="backspace" id="backspace"
-                    ><i class="fa-solid fa-delete-left"></i
-                ></span>
-                <span><i>z</i></span>
-                <span><i>x</i></span>
-                <span><i>c</i></span>
-                <span><i>v</i></span>
-                <span><i>b</i></span>
-                <span><i>n</i></span>
-                <span><i>m</i></span>
-                <span class="enter" id="enter"><i>Enter</i></span>
+                <button class="backspace" id="backspace">
+                    <i class="fa-solid fa-delete-left fa-2x"></i>
+                </button>
+                <button><i>z</i></button>
+                <button><i>x</i></button>
+                <button><i>c</i></button>
+                <button><i>v</i></button>
+                <button><i>b</i></button>
+                <button><i>n</i></button>
+                <button><i>m</i></button>
+                <button class="enter" id="enter"><i>Enter</i></button>
             </div>
         </div>
+
+        <button type="button" disabled onclick="gen()">start Game</button>
     </body>
 </html>

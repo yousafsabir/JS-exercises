@@ -20,6 +20,20 @@ body {
     background-color: #23324b;
 }
 
+/* main */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 3rem;
+}
+.main-block {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
 /* keyboard */
 .keyboard {
     margin: 4rem auto;
@@ -27,21 +41,22 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.9rem;
 }
 .row {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 0.9rem;
 }
-.row span {
+.row button {
     flex-grow: 1;
     display: inline-block;
     position: relative;
     min-height: 70px;
     padding: 8px 15px;
     background: linear-gradient(180deg, #282828, #202020);
+    border: none;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -53,16 +68,7 @@ body {
     overflow: hidden;
     cursor: pointer;
 }
-
-.row span:active {
-    transform: scale(0.94);
-    -webkit-transform: scale(0.94);
-    -moz-transform: scale(0.94);
-    -ms-transform: scale(0.94);
-    -o-transform: scale(0.94);
-}
-
-.row span::before {
+.row button::before {
     content: "";
     position: absolute;
     top: 3px;
@@ -82,10 +88,42 @@ body {
     border-top: 1px solid #0009;
 }
 
-.row span i {
+.row button:active {
+    transform: scale(0.94);
+    -webkit-transform: scale(0.94);
+    -moz-transform: scale(0.94);
+    -ms-transform: scale(0.94);
+    -o-transform: scale(0.94);
+}
+
+.row button.fail {
+    background: linear-gradient(180deg, #d25e5e, #b12222);
+    box-shadow: 10px 5px 10px rgba(255, 0, 0, 0.09);
+    opacity: 0.6;
+    transform: scale(0.94);
+    -webkit-transform: scale(0.94);
+    -moz-transform: scale(0.94);
+    -ms-transform: scale(0.94);
+    -o-transform: scale(0.94);
+    cursor: not-allowed;
+}
+.row button.fail::before {
+    background: linear-gradient(90deg, #ff3434, #ff4545);
+}
+
+.row button.success {
+    background: linear-gradient(180deg, #10b981, #065f46);
+    box-shadow: 5px 3px 10px rgba(0, 255, 0, 0.09);
+}
+.row button.success::before {
+    background: linear-gradient(90deg, #15803d, #20aa52);
+}
+
+.row button i {
     position: relative;
     color: #fff;
     font-style: normal;
+    font-size: 1.25rem;
     text-transform: uppercase;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
@@ -94,8 +132,8 @@ body {
     user-select: none;
 }
 
-.row span#backspace,
-.row span#enter {
+.row button#backspace,
+.row button#enter {
     flex-grow: 2;
     text-align: center;
     padding: 15px;
