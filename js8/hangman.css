@@ -1,0 +1,189 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+input,
+button {
+    font: inherit;
+}
+body {
+    background-color: #23324b;
+}
+
+/* main */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 8rem;
+}
+.main-block {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+/* keyboard */
+.keyboard {
+    margin: 4rem auto;
+    max-width: 850px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.9rem;
+}
+.row button {
+    flex-grow: 1;
+    display: inline-block;
+    position: relative;
+    min-height: 70px;
+    padding: 8px 15px;
+    background: linear-gradient(180deg, #282828, #202020);
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+        inset -8px 8px rgba(0, 0, 0, 0.25), 0 0 0 2px rgba(0, 0, 0, 0.75),
+        10px 20px 25px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+}
+.row button::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    background: linear-gradient(90deg, #232323, #4a4a4a);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0009;
+}
+.start-button:active,
+.row button:active {
+    transform: scale(0.94);
+    -webkit-transform: scale(0.94);
+    -moz-transform: scale(0.94);
+    -ms-transform: scale(0.94);
+    -o-transform: scale(0.94);
+}
+
+.row button.fail {
+    background: linear-gradient(180deg, #d25e5e, #b12222);
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.4;
+    transform: scale(0.94);
+    -webkit-transform: scale(0.94);
+    -moz-transform: scale(0.94);
+    -ms-transform: scale(0.94);
+    -o-transform: scale(0.94);
+    cursor: not-allowed;
+}
+.row button.fail::before {
+    background: linear-gradient(90deg, #ff3434, #ff4545);
+}
+
+.row button.success {
+    background: linear-gradient(180deg, #10b981, #065f46);
+    box-shadow: 5px 3px 10px rgba(0, 0, 0, 0.3);
+}
+.row button.success::before {
+    background: linear-gradient(90deg, #15803d, #20aa52);
+}
+
+.row button i,
+.start-button i {
+    position: relative;
+    color: #fff;
+    font-style: normal;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.row button#backspace,
+.row button#enter,
+.start-button i {
+    flex-grow: 2;
+    text-align: center;
+    padding: 15px;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+}
+.start-button {
+    display: inline-block;
+    position: relative;
+    min-height: 70px;
+    padding: 8px 15px;
+    background: linear-gradient(180deg, #fb923c, #c2410c);
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: inset -8px 0 8px rgba(234, 88, 12, 0.15),
+        inset -8px 8px rgba(234, 88, 12, 0.25),
+        0 0 0 2px rgba(234, 88, 12, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+}
+.start-button::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    background: linear-gradient(90deg, #f97316, #fb923c);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0009;
+}
+.start-button i {
+    color: #333;
+    font-weight: 600;
+    font-family: sans-serif;
+}
