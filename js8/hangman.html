@@ -20,51 +20,58 @@
         <title>Hangman | M.Yousaf</title>
     </head>
     <body>
-        <div class="main"></div>
+        <div class="main">
+            <div class="tries">tries</div>
+            <div class="inner-main"></div>
+        </div>
 
         <div class="keyboard">
             <div class="row row-1">
-                <button class="fail">
+                <button id="q" onclick="play(this.id)">
                     <i>q</i>
                 </button>
-                <button class="success"><i>w</i></button>
-                <button><i>e</i></button>
-                <button><i>r</i></button>
-                <button><i>t</i></button>
-                <button><i>y</i></button>
-                <button><i>u</i></button>
-                <button><i>i</i></button>
-                <button><i>o</i></button>
-                <button><i>p</i></button>
+                <button id="w" onclick="play(this.id)">
+                    <i>w</i>
+                </button>
+                <button id="e" onclick="play(this.id)">
+                    <i>e</i>
+                </button>
+                <button id="r" onclick="play(this.id)"><i>r</i></button>
+                <button id="t" onclick="play(this.id)"><i>t</i></button>
+                <button id="y" onclick="play(this.id)"><i>y</i></button>
+                <button id="u" onclick="play(this.id)"><i>u</i></button>
+                <button id="i" onclick="play(this.id)"><i>i</i></button>
+                <button id="o" onclick="play(this.id)"><i>o</i></button>
+                <button id="p" onclick="play(this.id)"><i>p</i></button>
             </div>
             <div class="row row-2">
-                <button><i>a</i></button>
-                <button><i>s</i></button>
-                <button><i>d</i></button>
-                <button><i>f</i></button>
-                <button><i>g</i></button>
-                <button><i>h</i></button>
-                <button><i>j</i></button>
-                <button><i>k</i></button>
-                <button><i>l</i></button>
+                <button id="a" onclick="play(this.id)"><i>a</i></button>
+                <button id="s" onclick="play(this.id)"><i>s</i></button>
+                <button id="d" onclick="play(this.id)"><i>d</i></button>
+                <button id="f" onclick="play(this.id)"><i>f</i></button>
+                <button id="g" onclick="play(this.id)"><i>g</i></button>
+                <button id="h" onclick="play(this.id)"><i>h</i></button>
+                <button id="j" onclick="play(this.id)"><i>j</i></button>
+                <button id="k" onclick="play(this.id)"><i>k</i></button>
+                <button id="l" onclick="play(this.id)"><i>l</i></button>
             </div>
             <div class="row row-3">
                 <button class="backspace" id="backspace">
                     <i class="fa-solid fa-delete-left fa-2x"></i>
                 </button>
-                <button><i>z</i></button>
-                <button><i>x</i></button>
-                <button><i>c</i></button>
-                <button><i>v</i></button>
-                <button><i>b</i></button>
-                <button><i>n</i></button>
-                <button><i>m</i></button>
+                <button id="z" onclick="play(this.id)"><i>z</i></button>
+                <button id="x" onclick="play(this.id)"><i>x</i></button>
+                <button id="c" onclick="play(this.id)"><i>c</i></button>
+                <button id="v" onclick="play(this.id)"><i>v</i></button>
+                <button id="b" onclick="play(this.id)"><i>b</i></button>
+                <button id="n" onclick="play(this.id)"><i>n</i></button>
+                <button id="m" onclick="play(this.id)"><i>m</i></button>
                 <button class="enter" id="enter"><i>Enter</i></button>
             </div>
         </div>
 
         <div class="start">
-            <button type="button" class="start-button">
+            <button type="button" onclick="create()" class="start-button">
                 <i>start Game</i>
             </button>
         </div>
