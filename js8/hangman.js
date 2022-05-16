@@ -94,13 +94,19 @@ let words = [
     "zero",
 ];
 
-function gen() {
-    let main = document.querySelector(".main");
-    for (let i = 0; i < 5; i++) {
-        let div = document.createElement("div");
-        div.classList.add("main-block");
-        main.appendChild(div);
-    }
+let word1 = ["apple", "banana", "pear"];
+
+function main() {
+    // get random word from array
+    // make it array
+    let word = words[getRnd(0, words.length - 1)].split("");
+    console.log(word);
+    // let main = document.querySelector(".main");
+    // for (let i = 0; i < 5; i++) {
+    //     let div = document.createElement("div");
+    //     div.classList.add("main-block");
+    //     main.appendChild(div);
+    // }
 }
 
 function getRnd(min, max) {
@@ -109,3 +115,5 @@ function getRnd(min, max) {
     let result = Math.floor(step2) + min;
     return result;
 }
+
+main();
