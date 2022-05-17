@@ -98,9 +98,8 @@ let tries_div = document.querySelector(".tries");
 let start_button = document.querySelector("#start");
 let main_div = document.querySelector(".inner-main");
 let blocks;
-let initialWord;
+let dupWord;
 let word = [];
-let repeatWord = [];
 let tries = 0;
 
 function start() {
@@ -108,14 +107,12 @@ function start() {
     clearFails();
     clearMainDiv();
     genWrdBlocks();
-    // setTimeout(setTries(), 500);
     setTries();
-    // getRptdNdUnrptd();
 }
 
 function play(id) {
     if (tries > 0) {
-        let match = initialWord.includes(id);
+        let match = word.includes(id);
         let res = 1;
         if (match) {
             blocks.forEach((block) => {
@@ -130,6 +127,7 @@ function play(id) {
                     console.log("abc");
                 }
             });
+            word.splice(word.indexOf(id), 1);
         } else if (!match) {
             document.querySelector(`#${id}`).classList.add("fail");
             document.querySelector(`#${id}`).disabled = true;
@@ -141,6 +139,8 @@ function play(id) {
 }
 
 // utility functions
+
+// =========================================
 
 function getRnd(min, max) {
     let step1 = max - min + 1;
@@ -155,10 +155,13 @@ function getRndWord() {
 }
 
 function genWrdBlocks() {
-    // initialWord = getRndWord();
-    initialWord = ["w", "w", "w"];
+    word = getRndWord();
+    // assigning word to dupWord for winLose function
+    dupWord = word;
+    console.log("word:", word, word.length);
+    console.log(dupWord.length);
     // create divs in dom
-    initialWord.forEach((letter) => {
+    word.forEach((letter) => {
         let div = document.createElement("div");
         div.classList.add(`main-block`);
         div.classList.add(`val-${letter}`);
@@ -168,18 +171,24 @@ function genWrdBlocks() {
     blocks = document.querySelectorAll(".main-block");
 }
 
+// =========================================
+
+function resetAll() {
+    tries = 0;
+    document.querySelector(".tries").innerHTML = "tries";
+    word = [];
+    clearFails();
+    clearMainDiv();
+    enableStart();
+}
+
 function setTries() {
-    tries = initialWord.length + 3;
+    tries = word.length + 3;
     tries_div.innerHTML = `tries: ${tries}`;
 }
 
 function decTries() {
     tries -= 1;
-}
-
-function resetAll() {
-    tries = 0;
-    document.querySelector(".tries").innerHTML = "tries";
 }
 
 function clearFails() {
@@ -207,33 +216,11 @@ function enableStart() {
 function winLose() {
     if (tries === 0) {
         alert("Unfortunately you lost the game, play again");
+        resetAll();
     } else if (
-        document.querySelectorAll(".visible").length === initialWord.length
+        document.querySelectorAll(".visible").length === dupWord.length
     ) {
         alert("Congratulations, You won the game");
+        resetAll();
     }
-}
-
-// for word and repeatWord
-function countInArray(array, element) {
-    let repeat_count = 0;
-    array.forEach((letter) => {
-        if (letter === element) {
-            repeat_count++;
-        }
-    });
-    return repeat_count;
-}
-
-function getRptdNdUnrptd() {
-    let present = [];
-    initialWord.forEach((letter) => {
-        repeats = countInArray(initialWord, letter);
-        if (repeats > 1 && !present.includes(letter)) {
-            repeatWord.push(Array(repeats).fill(letter));
-            present.push(letter);
-        } else if (repeats === 1) {
-            word.push(letter);
-        }
-    });
 }
