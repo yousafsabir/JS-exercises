@@ -94,55 +94,50 @@ let words = [
     "zero",
 ];
 
+let tries_div = document.querySelector(".tries");
+let start_button = document.querySelector("#start");
 let main_div = document.querySelector(".inner-main");
-// index to later access it in Play()
-let index;
+let blocks;
+let initialWord;
+let word = [];
+let repeatWord = [];
 let tries = 0;
 
-function create() {
-    // clearing previus word from main_div
-    main_div.innerHTML = "";
-    // get random word from array
-    // make it array
-    // let word = words[getRnd(0, words.length - 1)].split("");
-    let word = "abcc".split("");
-    // index = words.indexOf(word.join(""));
-    // tries = word.length + 3;
-    document.querySelector(".tries").innerHTML = `tries: ${tries}`;
-    // console.log("word:", word, "index:", index);
-    // create divs in dom
-    word.forEach((letter) => {
-        let div = document.createElement("div");
-        div.classList.add(`main-block`);
-        div.classList.add(`val-${letter}`);
-        div.innerHTML = letter;
-        main_div.appendChild(div);
-    });
-    console.log(document);
+function start() {
+    disableStart();
+    clearFails();
+    clearMainDiv();
+    genWrdBlocks();
+    // setTimeout(setTries(), 500);
+    setTries();
+    // getRptdNdUnrptd();
 }
 
 function play(id) {
-    if (tries === 0) {
-        return alert("you don't have any try left, play again");
-    } else {
-        let word = words[index].split("");
-        let match;
-        word.forEach((letter) => {
-            if (letter === id) {
-                match = true;
-            }
-        });
+    if (tries > 0) {
+        let match = initialWord.includes(id);
+        let res = 1;
         if (match) {
-            document.querySelector(`.val-${id}`).classList.add("visible");
+            blocks.forEach((block) => {
+                if (
+                    !block.classList.contains("visible") &&
+                    block.textContent === id &&
+                    res >= 1
+                ) {
+                    block.classList.add("visible");
+                    res -= 1;
+                    console.log(block);
+                    console.log("abc");
+                }
+            });
         } else if (!match) {
             document.querySelector(`#${id}`).classList.add("fail");
             document.querySelector(`#${id}`).disabled = true;
-            tries -= 1;
+            decTries();
             document.querySelector(".tries").innerHTML = `tries: ${tries}`;
         }
-        let a = document.querySelectorAll(".visible");
-        console.log(a);
     }
+    winLose();
 }
 
 // utility functions
@@ -153,4 +148,92 @@ function getRnd(min, max) {
     let result = Math.floor(step2) + min;
     return result;
 }
-let a = "b";
+
+function getRndWord() {
+    let word = words[getRnd(0, words.length - 1)].split("");
+    return word;
+}
+
+function genWrdBlocks() {
+    // initialWord = getRndWord();
+    initialWord = ["w", "w", "w"];
+    // create divs in dom
+    initialWord.forEach((letter) => {
+        let div = document.createElement("div");
+        div.classList.add(`main-block`);
+        div.classList.add(`val-${letter}`);
+        div.innerHTML = letter;
+        main_div.appendChild(div);
+    });
+    blocks = document.querySelectorAll(".main-block");
+}
+
+function setTries() {
+    tries = initialWord.length + 3;
+    tries_div.innerHTML = `tries: ${tries}`;
+}
+
+function decTries() {
+    tries -= 1;
+}
+
+function resetAll() {
+    tries = 0;
+    document.querySelector(".tries").innerHTML = "tries";
+}
+
+function clearFails() {
+    for (let i = 97; i < 123; i++) {
+        document
+            .querySelector(`#${String.fromCharCode(i)}`)
+            .classList.remove("fail");
+    }
+}
+
+function clearMainDiv() {
+    main_div.innerHTML = "";
+}
+
+function disableStart() {
+    start_button.disabled = true;
+    start_button.classList.add("start-fail");
+}
+
+function enableStart() {
+    start_button.disabled = false;
+    start_button.classList.remove("start-fail");
+}
+
+function winLose() {
+    if (tries === 0) {
+        alert("Unfortunately you lost the game, play again");
+    } else if (
+        document.querySelectorAll(".visible").length === initialWord.length
+    ) {
+        alert("Congratulations, You won the game");
+    }
+}
+
+// for word and repeatWord
+function countInArray(array, element) {
+    let repeat_count = 0;
+    array.forEach((letter) => {
+        if (letter === element) {
+            repeat_count++;
+        }
+    });
+    return repeat_count;
+}
+
+function getRptdNdUnrptd() {
+    let present = [];
+    initialWord.forEach((letter) => {
+        repeats = countInArray(initialWord, letter);
+        if (repeats > 1 && !present.includes(letter)) {
+            repeatWord.push(Array(repeats).fill(letter));
+            present.push(letter);
+        } else if (repeats === 1) {
+            word.push(letter);
+        }
+    });
+}
