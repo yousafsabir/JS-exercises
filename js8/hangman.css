@@ -50,12 +50,35 @@ body {
 .main-block {
     width: 100px;
     height: 100px;
-    background-color: red;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     color: transparent;
+    border-bottom: 15px solid #202020;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    position: relative;
+}
+.main-block::after {
+    content: "";
+    position: absolute;
+    height: 7px;
+    bottom: -11px;
+    left: 5px;
+    right: 5px;
+    background: linear-gradient(90deg, #4a4a4a, #3c3c3c 50%, #4a4a4a 100%);
+    box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+        inset -8px 8px rgba(0, 0, 0, 0.25), 10px 20px 25px rgba(0, 0, 0, 0.4);
+    border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    -ms-border-radius: 0 0 3px 3px;
+    -o-border-radius: 0 0 3px 3px;
 }
 .main-block.visible {
     color: #fff;
@@ -158,8 +181,11 @@ button.fail::before {
 .start {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 5rem;
 }
-.start-button {
+.start-button,
+.hint {
     display: inline-block;
     position: relative;
     min-height: 70px;
@@ -177,7 +203,8 @@ button.fail::before {
     overflow: hidden;
     cursor: pointer;
 }
-.start-button::before {
+.start-button::before,
+.hint::before {
     content: "";
     position: absolute;
     top: 3px;
@@ -196,10 +223,24 @@ button.fail::before {
     border-bottom: 1px solid #0004;
     border-top: 1px solid #0009;
 }
-.start-button i {
+.start-button i,
+.hint i {
+    position: relative;
     color: #333;
     font-weight: 600;
     font-family: sans-serif;
+}
+
+.hint {
+    min-height: 60px;
+    padding: 8px 20px 15px 13px;
+    background: linear-gradient(180deg, #cfcfcf, #777777);
+    box-shadow: inset -8px 0 8px rgba(234, 255, 255, 0.15),
+        inset -8px 8px rgba(234, 255, 255, 0.25),
+        0 0 0 2px rgba(234, 255, 255, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+}
+.hint::before {
+    background: linear-gradient(90deg, #a3a3a3, #eeeeee);
 }
 #start.start-fail {
     opacity: 0.6;

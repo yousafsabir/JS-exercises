@@ -98,7 +98,7 @@ let tries_div = document.querySelector(".tries");
 let start_button = document.querySelector("#start");
 let main_div = document.querySelector(".inner-main");
 let blocks;
-let dupWord;
+let dupWord = [];
 let word = [];
 let tries = 0;
 
@@ -123,8 +123,6 @@ function play(id) {
                 ) {
                     block.classList.add("visible");
                     res -= 1;
-                    console.log(block);
-                    console.log("abc");
                 }
             });
             word.splice(word.indexOf(id), 1);
@@ -156,10 +154,9 @@ function getRndWord() {
 
 function genWrdBlocks() {
     word = getRndWord();
-    // assigning word to dupWord for winLose function
-    dupWord = word;
-    console.log("word:", word, word.length);
-    console.log(dupWord.length);
+    console.log(word);
+    dupWord = [...dupWord, ...word];
+
     // create divs in dom
     word.forEach((letter) => {
         let div = document.createElement("div");
@@ -172,6 +169,23 @@ function genWrdBlocks() {
 }
 
 // =========================================
+
+function hint() {
+    if (tries >= 2) {
+        let arr = [];
+        blocks.forEach((block) => {
+            if (!block.classList.contains("visible")) {
+                arr.push(block);
+            }
+        });
+        arr[getRnd(0, arr.length - 1)].classList.add("visible");
+        tries = tries - 2;
+        document.querySelector(".tries").innerHTML = `tries: ${tries}`;
+        winLose();
+    } else {
+        alert("you don't have enough tries");
+    }
+}
 
 function resetAll() {
     tries = 0;
