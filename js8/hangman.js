@@ -3,30 +3,37 @@ let words = [
     "apple",
     "aunt",
     "away",
+    "bash",
     "back",
     "before",
     "box",
     "buy",
+    "csharp",
     "cake",
     "chair",
     "circle",
     "come",
+    "dart",
     "dance",
     "deep",
     "die",
     "drop",
+    "elixir",
     "each",
     "empty",
     "ever",
     "eye",
+    "fortran",
     "face",
     "fever",
     "firm",
     "fork",
+    "golang",
     "gate",
     "gift",
     "gold",
     "gun",
+    "haskell",
     "hair",
     "hurt",
     "head",
@@ -35,18 +42,23 @@ let words = [
     "isle",
     "iron",
     "ice",
+    "javascript",
+    "java",
     "junk",
     "jam",
     "juice",
     "jug",
+    "kotlin",
     "kill",
     "knee",
     "knife",
     "know",
+    "lua",
     "long",
     "last",
     "light",
     "lame",
+    "matlab",
     "moon",
     "milk",
     "mad",
@@ -55,27 +67,36 @@ let words = [
     "negro",
     "news",
     "nice",
+    "ocaml",
     "off",
     "old",
     "over",
     "oil",
+    "python",
     "pain",
     "price",
     "pen",
     "pull",
+    "php",
     "quick",
     "queen",
     "queer",
+    "rust",
     "rain",
     "rice",
     "run",
+    "ruby",
     "repair",
     "spell",
+    "scala",
     "skin",
+    "swift",
     "story",
+    "solidity",
     "soup",
     "true",
     "thin",
+    "typescript",
     "tilte",
     "toe",
     "ugly",
@@ -84,6 +105,7 @@ let words = [
     "voice",
     "visit",
     "water",
+    "wasm",
     "walk",
     "wife",
     "wire",
@@ -101,9 +123,17 @@ let blocks;
 let dupWord = [];
 let word = [];
 let tries = 0;
+let totalTries;
+
+// starting script
+for (let i = 97; i < 123; i++) {
+    document.querySelector(`#${String.fromCharCode(i)}`).disabled = true;
+}
+document.querySelector(".hint").disabled = true;
 
 function start() {
     disableStart();
+    enableBtns();
     clearFails();
     clearMainDiv();
     genWrdBlocks();
@@ -130,7 +160,9 @@ function play(id) {
             document.querySelector(`#${id}`).classList.add("fail");
             document.querySelector(`#${id}`).disabled = true;
             decTries();
-            document.querySelector(".tries").innerHTML = `tries: ${tries}`;
+            document.querySelector(
+                ".tries"
+            ).innerHTML = `${tries} out of ${totalTries} tries left`;
         }
     }
     winLose();
@@ -198,7 +230,8 @@ function resetAll() {
 
 function setTries() {
     tries = word.length + 3;
-    tries_div.innerHTML = `tries: ${tries}`;
+    totalTries = word.length + 3;
+    tries_div.innerHTML = `${tries} out of ${totalTries} tries left`;
 }
 
 function decTries() {
@@ -220,6 +253,13 @@ function clearMainDiv() {
 function disableStart() {
     start_button.disabled = true;
     start_button.classList.add("start-fail");
+}
+
+function enableBtns() {
+    for (let i = 97; i < 123; i++) {
+        document.querySelector(`#${String.fromCharCode(i)}`).disabled = false;
+    }
+    document.querySelector(".hint").disabled = false;
 }
 
 function enableStart() {
