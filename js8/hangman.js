@@ -298,7 +298,11 @@ function enableBtns() {
 
 function winLose() {
     if (tries === 0) {
-        alert("Unfortunately you lost the game, play again");
+        alert(
+            `Unfortunately you lost the game, secret word was "${dupWord.join(
+                ""
+            )}" play again`
+        );
         resetAll();
         disableBtns();
     } else if (
