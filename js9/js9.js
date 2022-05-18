@@ -1,3 +1,6 @@
+let word = [];
+let repeatWord = [];
+
 function countInArray(array, element) {
     let repeat_count = 0;
     array.forEach((letter) => {
@@ -8,7 +11,7 @@ function countInArray(array, element) {
     return repeat_count;
 }
 
-function getRptdNdUnrptd() {
+function getRptdNdUnrptd(initialWord) {
     let present = [];
     initialWord.forEach((letter) => {
         repeats = countInArray(initialWord, letter);
@@ -20,3 +23,6 @@ function getRptdNdUnrptd() {
         }
     });
 }
+
+getRptdNdUnrptd([1, 1, 2, 3, 3, 3, 4, 5, 6, 6]);
+console.log(word, repeatWord);
