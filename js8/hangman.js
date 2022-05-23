@@ -228,6 +228,7 @@ function resetAll() {
     document.querySelector(".tries").innerHTML = "tries";
     img.src = "./assets/images/0.jpg";
     word = [];
+    dupWord = [];
     clearFails();
     clearMainDiv();
     enableStart();
