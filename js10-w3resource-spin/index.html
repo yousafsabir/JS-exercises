@@ -26,23 +26,24 @@
                 font-family: sans-serif;
                 color: #333;
             }
+            pre {
+                font-size: 2.5rem;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div>
-            <h1 id="text"></h1>
+            <pre id="text"></pre>
         </div>
         <script defer>
             const text = document.querySelector("#text");
-            let arr = ["w", "3", "r", "e", "s", "o", "u", "r", "c", "e"];
+            let arr = ["w", "3", "r", "e", "s", "o", "u", "r", "c", "e", " "];
             text.innerText = arr.join("");
             setInterval(() => {
                 let last = arr[arr.length - 1];
                 arr.pop();
                 arr.unshift(last);
-                if (arr[0] === "w") {
-                    text.innerHTML = `&nbsp;${arr.join("")}`;
-                }
                 text.innerText = arr.join("");
             }, 500);
         </script>
