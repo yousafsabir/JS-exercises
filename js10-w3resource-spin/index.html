@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                width: 100%;
+                min-height: 100vh;
+                background-color: rgb(0, 85, 0);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            div {
+                background-color: red;
+                padding: 8px;
+                border-radius: 6px;
+                font-family: sans-serif;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id="text"></h1>
+        </div>
+        <script defer>
+            const text = document.querySelector("#text");
+            let arr = ["w", "3", "r", "e", "s", "o", "u", "r", "c", "e"];
+            text.innerText = arr.join("");
+            setInterval(() => {
+                let last = arr[arr.length - 1];
+                arr.pop();
+                arr.unshift(last);
+                if (arr[0] === "w") {
+                    text.innerHTML = `&nbsp;${arr.join("")}`;
+                }
+                text.innerText = arr.join("");
+            }, 500);
+        </script>
+    </body>
+</html>
