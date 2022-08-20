@@ -96,12 +96,30 @@ function telephoneCheck(str) {
     return true;
 }
 
-// let a = "123456789123";
+// Another more readable Solution
+function readableValidator(str) {
+    const validPatterns = [
+        // 555-555-5555
+        /^\d{3}-\d{3}-\d{4}$/,
+        // (555)555-5555
+        /^\(\d{3}\)\d{3}-\d{4}$/,
+        // (555) 555-5555
+        /^\(\d{3}\) \d{3}-\d{4}$/,
+        // 555 555 5555
+        /^\d{3} \d{3} \d{4}$/,
+        // 5555555555
+        /^\d{10}$/,
+        // 1 555 555 5555
+        /^1 \d{3} \d{3} \d{4}$/,
+        // 1 555-555-5555
+        /^1 \d{3}-\d{3}-\d{4}$/,
+        // 1 (555) 555-5555
+        /^1 \(\d{3}\) \d{3}-\d{4}$/,
+        // 1(555)555-5555
+        /^1\(\d{3}\)\d{3}-\d{4}$/,
+    ];
+
+    // some() method return true if one or more element in array meet certain condition
+    return validPatterns.some((pattern) => pattern.test(str));
+}
 console.log(telephoneCheck("(555-555-5555"));
-// if (a.length < 10 || a.length > 11) {
-//     console.log(a.length);
-//     console.log("false");
-// } else {
-//     console.log(a.length);
-//     console.log("true");
-// }
