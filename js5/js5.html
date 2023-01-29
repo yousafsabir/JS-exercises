@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Js5</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            * + * {
+                margin-top: 1em;
+            }
+
+            body {
+                width: 100%;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            input {
+                padding: 0.5rem 1rem;
+                width: 150px;
+            }
+
+            button {
+                padding: 0.25rem 3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Write a Js program which shows 15 days ahead date from selected date
+        </h1>
+
+        <label for="input" id="label"> Enter Year </label>
+        <input type="text" name="input" id="input" />
+
+        <button onclick="getData()">Enter</button>
+        <button onclick="process()">Process</button>
+
+        <h3 id="output"></h3>
+
+        <script src="./js5.js"></script>
+    </body>
+</html>

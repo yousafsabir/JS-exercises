@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exponent_Compute</title>
+    <script>
+      let input = parseInt(prompt("Enter the number"));
+      let exponent = parseInt(prompt("Enter the exponent"));
+      let computeFunc = (input, exponent) => {
+        let output = 1;
+        for (let i = 0; i < exponent; i++) {
+          output *= input;
+        }
+        return output;
+      };
+      let ans = computeFunc(input, exponent);
+      console.log(ans);
+      //   or simply I could have used Math.pow(number, exponent)
+    </script>
+  </head>
+  <body>
+    <h1>Write a JavaScript program to compute the exponent of a number</h1>
+  </body>
+</html>
