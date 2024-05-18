@@ -10,15 +10,13 @@ function dirReduc(arr) {
   };
   let dupDirFound = true;
   while (dupDirFound) {
-    let flag = false;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i + 1] && arr[i + 1] === oppositeDirections[arr[i]]) {
-        arr.splice(i, arr[i] === arr[i + 1] ? 1 : 2);
-        flag = true;
-        break;
+    dupDirFound = arr.reduce((flag, v, i) => {
+      if (!flag && arr[i + 1] && arr[i + 1] === oppositeDirections[v]) {
+        arr.splice(i, 2);
+        return true;
       }
-    }
-    if (!flag) dupDirFound = false;
+      return flag;
+    }, false);
   }
   return arr;
 }
