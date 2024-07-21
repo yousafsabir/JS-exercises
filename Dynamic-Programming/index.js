@@ -8,7 +8,7 @@ function nthFib1(n) {
 
 console.time("ExecTime");
 function nthFib2(n) {
-  if (i <= 1) return 1;
+  if (n <= 1) return 1;
 
   let lastTwoNumbers = [1, 1];
 
