@@ -6,18 +6,19 @@ function nthFib1(n) {
   return nthFib1(n - 1) + nthFib1(n - 2);
 }
 
+console.time("ExecTime");
 function nthFib2(n) {
-  let sequence = Array(n);
+  let lastTwoNumbers = [1, 1];
 
   for (let i = 0; i < n; i++) {
     if (i <= 1) {
-      sequence[i] = 1;
       continue;
     }
-    sequence[i] = sequence[i - 1] + sequence[i - 2];
+    lastTwoNumbers = [lastTwoNumbers[1], lastTwoNumbers[0] + lastTwoNumbers[1]];
   }
 
-  return sequence[n - 1];
+  return lastTwoNumbers[1];
 }
 
 console.log(nthFib2(50));
+console.timeEnd("ExecTime");
