@@ -8,12 +8,11 @@ function nthFib1(n) {
 
 console.time("ExecTime");
 function nthFib2(n) {
+  if (i <= 1) return 1;
+
   let lastTwoNumbers = [1, 1];
 
   for (let i = 0; i < n; i++) {
-    if (i <= 1) {
-      continue;
-    }
     lastTwoNumbers = [lastTwoNumbers[1], lastTwoNumbers[0] + lastTwoNumbers[1]];
   }
 
