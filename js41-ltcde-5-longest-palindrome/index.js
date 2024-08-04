@@ -13,7 +13,7 @@ function longestPalindrome(s) {
     for (let j = i + 1; j < s.length + 1; j++) {
       let substr = s.substring(i, j);
       if (
-        substr === reverseStr(substr) &&
+        substr === reversedStr(substr) &&
         substr.length > longestPalindromeYet.length
       ) {
         longestPalindromeYet = substr;
@@ -28,7 +28,7 @@ function longestPalindrome(s) {
  * @param {string} s
  * @return {string}
  */
-function reverseStr(s) {
+function reversedStr(s) {
   return s.split("").reduce((acc, curr) => curr + acc, "");
 }
 
