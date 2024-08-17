@@ -18,22 +18,15 @@ function convert(s, numRows) {
     if (!resultArr[currentRow - 1]) resultArr[currentRow - 1] = [];
     resultArr[currentRow - 1].push(letter);
 
-    // toggle forwardFlag & inc/dec currentRow
-    if (forwardFlag) {
-      if (currentRow !== numRows) {
-        currentRow += 1;
-      } else {
-        forwardFlag = false;
-        if (currentRow > 1) currentRow -= 1;
-      }
-    } else {
-      if (currentRow !== 1) {
-        currentRow -= 1;
-      } else {
-        forwardFlag = true;
-        if (numRows > 1) currentRow += 1;
-      }
+    // toggle forwardFlag
+    if (currentRow === numRows) {
+      forwardFlag = false;
+    } else if (currentRow === 1) {
+      forwardFlag = true;
     }
+
+    // inc/dec currentRow
+    currentRow = forwardFlag ? currentRow + 1 : currentRow - 1;
   }
 
   return resultArr.reduce((acc, curr) => acc + curr.join(""), "");
