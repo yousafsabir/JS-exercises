@@ -26,7 +26,7 @@ function convert(s, numRows) {
     }
 
     // inc/dec currentRow
-    currentRow = forwardFlag ? currentRow + 1 : currentRow - 1;
+    currentRow += forwardFlag ? 1 : -1;
   }
 
   return resultArr.reduce((acc, curr) => acc + curr.join(""), "");
