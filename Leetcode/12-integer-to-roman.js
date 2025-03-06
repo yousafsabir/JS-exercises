@@ -15,17 +15,16 @@ const arr = [
 ];
 
 function intToRoman(num) {
-    return arr.reduce((acc, val, idx) => {
-        if (num <= 0) return acc;
-        if (num >= val[0]) {
-            let repeat = idx % 2 === 0 ? Math.floor(num / val[0]) : 1;
-            console.log(val[1], repeat * val[0]);
-            acc += val[1].repeat(repeat);
-            num = idx % 2 === 0 ? num % val[0] : num - val[0];
+    let result = ""
+    for ([v, k] of arr)  {
+        if (num <= 0) break
+        while (num >= v) {
+            result += k
+            num -= v
         }
-        return acc;
-    }, "");
+    }
+    return result
 }
 
 console.log(intToRoman(1525));
-console.log(intToRoman(3749));
+console.log(intToRoman(1950));
