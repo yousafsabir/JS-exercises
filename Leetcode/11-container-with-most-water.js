@@ -1,4 +1,5 @@
 // Iteration 1: Brute force approach
+// Iteration 2: Two Pointer approach
 
 /**
  * @param {number[]} height
@@ -7,16 +8,21 @@
 function maxArea(height) {
   let areaMax = 0;
 
-  for (let i = 0; i < height.length; i++) {
-    for (let j = i + 1; j < height.length; j++) {
-      let w = j - i;
-      let h = height[i] > height[j] ? height[j] : height[i];
-      let area = w * h;
-      if (area > areaMax) areaMax = area;
-    }
+  let left = 0;
+  let right = height.length - 1;
+
+  while (left < right) {
+    let leftHeight = height[left];
+    let rightHeight = height[right];
+    let _height = leftHeight > rightHeight ? rightHeight : leftHeight;
+    let width = right - left;
+    let area = width * _height;
+
+    if (area > areaMax) areaMax = area;
+
+    if (leftHeight > rightHeight) right -= 1;
+    else left += 1;
   }
 
   return areaMax;
 }
-
-console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
