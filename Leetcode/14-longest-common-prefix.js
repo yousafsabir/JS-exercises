@@ -19,7 +19,7 @@ function longestCommonPrefix(strs) {
         break;
       }
     }
-    if (longestPrefix >= 0) break;
+    if (!longestPrefix) break;
   }
 
   return longestPrefix.slice(0, longestPrefixIndex);
